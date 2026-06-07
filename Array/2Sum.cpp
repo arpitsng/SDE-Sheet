@@ -5,7 +5,7 @@ public:
         int n = arr.size();
         unordered_map<int,int>mp;
         for(int i=0; i<n; i++){
-            mp[arr[i]] = i;
+            mp[arr[i]] = i; 
         } 
 
         for(int i=0; i<n; i++){
