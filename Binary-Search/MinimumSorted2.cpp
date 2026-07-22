@@ -1,3 +1,28 @@
+//--------------------ideal Approach-------------------
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int n = nums.size();
+
+        int l = 0, h = n-1;
+
+        while(l < h){
+            int mid = l + (h-l)/2;
+
+            if(nums[mid] > nums[h]) l = mid + 1;
+            else if(nums[mid] < nums[h]) h = mid;
+
+            else{
+                h--; //we are doing l++ and h--  both coz we need to return the minimum value -- thats nums[l]
+                //so we can duduce it form the left
+            }
+        }
+
+        return nums[l];
+    }
+};
+
+
 //---------------engineered Approach--------------
 class Solution {
 public:
