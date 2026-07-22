@@ -1,3 +1,28 @@
+//--------intended Approach---------
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int n = nums.size();
+
+        int r = n-1, l = 0;
+
+        while(l < r){
+            int mid = l + (r - l)/2;
+
+            if(nums[r] < nums[mid]){
+                l = mid +1;
+            }
+
+            else{
+                r = mid;
+            }
+        }
+
+        return nums[l];
+    }
+};
+
+
 //-----------engineering appraoch-------------
 class Solution {
 public:
