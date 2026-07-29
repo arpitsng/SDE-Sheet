@@ -72,3 +72,28 @@ public:
         return left + mid + right;
     }
 };
+
+
+////////---------------bucket solution------------------
+class Solution {
+public:
+    //bucket Sort
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        int n = nums.size();
+        unordered_map<int, int> freq;
+        vector<vector<int>> bucket(n+1); //{freq, {nums}} -- max we can have n freq
+        for(auto num: nums) freq[num]++;
+        for(auto [num, f] : freq) bucket[f].push_back(num);
+
+        vector<int> ans;
+        for(int f=n; f>=1 && ans.size() < k; f--){
+            for(auto num: bucket[f]){
+                ans.push_back(num);
+                if(ans.size() == k) return ans;
+            }
+        }
+
+        return ans;
+
+    }
+};
